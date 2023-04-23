@@ -4,6 +4,7 @@
 - [Cracking and dencode](#cracking-and-dencode)
 - [General pentesting methodologies](#general-pentesting-methodologies)
 - [Pentesting writeups](#pentesting-writeups)
+- [Java platform vulnerability tool](#java-platform-vulnerability-tool)
 
 ### Cracking and dencode
 ***For cracking vigenere cipher***
@@ -23,3 +24,6 @@
 ### Pentesting writeups
 - `https://www.bugbountyhunting.com/`
 - `https://pentester.land/writeups/`
+
+### Java platform vulnerability tool
+- `https://github.com/joaomatosf/jexboss`
