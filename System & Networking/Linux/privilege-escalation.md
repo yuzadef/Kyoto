@@ -1,5 +1,8 @@
 # Privilege escalation cheatsheets
 
+## Resources
+- [Sudo Privilege Escalation](https://exploit-notes.hdks.org/exploit/linux/privilege-escalation/sudo/)
+
 ## Summary
 * [Automation for privilege escalation](#automate-enumeration-for-privilege-escalation)
 * [Exploiting Sudo](#sudo)
