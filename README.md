@@ -3,27 +3,31 @@
 ## Useful resources
 - [Cracking and dencode](#cracking-and-dencode)
 - [General pentesting methodologies](#general-pentesting-methodologies)
+- [Bug bounty tools](#bug-bounty-tools)
 - [Pentesting writeups](#pentesting-writeups)
 - [Java platform vulnerability tool](#java-platform-vulnerability-tool)
 
 ### Cracking and dencode
 ***For cracking vigenere cipher***
-- `https://www.guballa.de/vigenere-solve`
+- [Vigenere solver](https://www.guballa.de/vigenere-solve)
 
 ***Crack any ciphers or hash***
-- `https://gchq.github.io/CyberChef/`
+- [Cyberchef](https://gchq.github.io/CyberChef/)
 
 ***Crack password hash***
-- `https://crackstation.net/`
+- [Crackstation](https://crackstation.net/)
 
 
 ### General pentesting methodologies
-- `https://book.hacktricks.xyz/welcome/readme`
-- `https://github.com/swisskyrepo/PayloadsAllTheThings`
+- [Hacktricks](https://book.hacktricks.xyz/welcome/readme)
+- [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
+
+### Bug bounty tools
+- [Bug bounty tools](https://github.com/vavkamil/awesome-bugbounty-tools)
 
 ### Pentesting writeups
-- `https://www.bugbountyhunting.com/`
-- `https://pentester.land/writeups/`
+- [Bug bounty hunting](https://www.bugbountyhunting.com/)
+- [Pentesterland](https://pentester.land/writeups/)
 
 ### Java platform vulnerability tool
-- `https://github.com/joaomatosf/jexboss`
+- [Jexboss](https://github.com/joaomatosf/jexboss)
