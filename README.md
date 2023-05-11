@@ -1,46 +1,33 @@
-# Jots
+# Kyoto
 
-**Exporting files**
-- Zip directory: `tar -czvf archive.tar.gz bounty/`
-- Unzip file: `tar -xzvf archive.tar.gz`
+## Useful resources
+- [Cracking and dencode](#cracking-and-dencode)
+- [General pentesting methodologies](#general-pentesting-methodologies)
+- [Bug bounty tools](#bug-bounty-tools)
+- [Pentesting writeups](#pentesting-writeups)
+- [Java platform vulnerability tool](#java-platform-vulnerability-tool)
 
-## Summary
-- [General workflow](#general-workflow)
-- [Speed up your work](#speed-up-your-work)
+### Cracking and dencode
+***For cracking vigenere cipher***
+- [Vigenere solver](https://www.guballa.de/vigenere-solve)
 
-## General workflow
-- [ ] Enumerate for subdomains using Subfinder & other tools
-  - `subfinder -d redacted.com -all -silent -o subdomains.txt`
-  - `ffuf -u 'https://redacted.com' -H "Host: FUZZ.redacted.com" -w wordlists.txt -o subdomains.txt`
+***Crack any ciphers or hash***
+- [Cyberchef](https://gchq.github.io/CyberChef/)
 
-- [ ] Check for sitemap.xml or robots.txt ***(Often reveals list of urls & paths)***
-  - https://redacted.com/sitemap.xml
-  - https://redacted.com/robots.txt
+***Crack password hash***
+- [Crackstation](https://crackstation.net/)
 
-- [ ] Use Hakrawler to crawl all visible url in a page
-  - `echo 'https://redacted.com' | hakrawler | tee crawler.txt`
 
-- [ ] Use WaybackUrls to trace back older versions ***(Enlarge attack surface)***
-  - `echo 'redacted.com' | waybackurls | tee wayback.txt`
+### General pentesting methodologies
+- [Hacktricks](https://book.hacktricks.xyz/welcome/readme)
+- [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
 
-- [ ] Use GF Patters to find url with specific functionality
-  - `cat crawler.txt | gf xss | sed 's/=.*/=/' | sed 's/URL: //' | tee xss-urls.txt`
-  - `cat wayback.txt | gf idor | sed 's/=.*/=/' | sed 's/URL: //' | tee idor-urls.txt`
+### Bug bounty tools
+- [Bug bounty tools](https://github.com/vavkamil/awesome-bugbounty-tools)
 
-- [ ] Run automation tool on the urls & domains retrieve
-  - dalfox
-  - nuclei
-  - commix
-  - sqlmap
+### Pentesting writeups
+- [Bug bounty hunting](https://www.bugbountyhunting.com/)
+- [Pentesterland](https://pentester.land/writeups/)
 
-- [ ] Exploit manually
-  - understand the app's flow
-  - intercept requests, data & header tampering, use other HTTP methods
-  - try basic payloads and find out the security measures applied
-  - using Hacktricks or PayloadsAllTheThings resources & many more
-  - do a lot of research
-  - read writeups
-
-## Speed up your work
-- Make a GET request to a list of domains to check for validity
-  - `xargs -a subdomains.txt -n 1 -P 10 sh -c 'curl -s -I -o /dev/null -w "%{url_effective} %{http_code}\n" "$@" | grep -v "000"' sh | tee subdomains.txt'`
+### Java platform vulnerability tool
+- [Jexboss](https://github.com/joaomatosf/jexboss)
