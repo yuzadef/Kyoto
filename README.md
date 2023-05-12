@@ -6,6 +6,7 @@
 - [Bug bounty tools](#bug-bounty-tools)
 - [Pentesting writeups](#pentesting-writeups)
 - [Java platform vulnerability tool](#java-platform-vulnerability-tool)
+- [Bug hunting checklists](#bug-hunting-checklists)
 
 ### Cracking and dencode
 ***For cracking vigenere cipher***
@@ -31,3 +32,6 @@
 
 ### Java platform vulnerability tool
 - [Jexboss](https://github.com/joaomatosf/jexboss)
+
+### Bug hunting checklists
+- [Sehno checklists](https://github.com/sehno/Bug-bounty/blob/master/bugbounty_checklist.md)
